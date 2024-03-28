@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Product extends StatefulWidget {
-  const Product({super.key});
+  const Product({Key? key}) : super(key: key);
 
   @override
   State<Product> createState() => _ProductState();
@@ -14,36 +14,31 @@ class _ProductState extends State<Product> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        height: screenHeight,
         width: screenWidth,
+        height: screenHeight,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage('assets/images/Background.png'),
-          fit: BoxFit.cover,
-        )),
-        child: Content(screenHeight: screenHeight, screenWidth: screenHeight),
+          image: DecorationImage(
+            image: AssetImage('assets/images/Background.png'),
+            fit: BoxFit.cover, // Ensure the image covers the entire container
+          ),
+        ),
+        child: Content(
+          screenHeight: screenHeight,
+          screenWidth: screenWidth,
+        ),
       ),
     );
   }
 }
 
-class Content extends StatefulWidget {
+class Content extends StatelessWidget {
   final double screenHeight;
   final double screenWidth;
 
   const Content({
-    Key? key,
     required this.screenHeight,
     required this.screenWidth,
-  }) : super(key: key);
-
-  @override
-  State<Content> createState() => _ContentState();
-}
-
-class _ContentState extends State<Content> {
-  get screenHeight => null;
-  get screenWidth => null;
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +58,7 @@ class _ContentState extends State<Content> {
         ),
       ),
       child: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
