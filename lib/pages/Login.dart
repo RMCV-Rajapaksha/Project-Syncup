@@ -57,10 +57,10 @@ class Content extends StatelessWidget {
           ],
         ),
       ),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
+        children: const [
           Text(
             'Welcome to SyncUp',
             style: TextStyle(
