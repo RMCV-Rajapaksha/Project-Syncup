@@ -12,6 +12,8 @@ class Create extends StatefulWidget {
 }
 
 class _LoginState extends State<Create> {
+  String dropdownValue = 'One';
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -20,7 +22,7 @@ class _LoginState extends State<Create> {
       screenWidth: screenWidth,
       screenHeight: screenHeight,
       theChild: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Form(
             key: _formKey,
@@ -36,8 +38,15 @@ class _LoginState extends State<Create> {
                         fontSize: screenHeight * 0.04,
                         fontWeight: FontWeight.bold),
                   ),
+                  Container(
+                    child: Image.asset(
+                        'assets/images/pexels-marta-dzedyshko-3302489.png'),
+                  ),
+
+                  // DropdownButton<String>(value: dropdownValue, onChanged: onChanged),
                   SizedBox(height: screenHeight * 0.02),
                   TextFormField(
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
                       hintText: 'Event Type',
                       hintStyle: const TextStyle(
@@ -74,6 +83,7 @@ class _LoginState extends State<Create> {
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   TextFormField(
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
                       hintText: 'Event Name',
                       hintStyle: const TextStyle(
@@ -110,6 +120,7 @@ class _LoginState extends State<Create> {
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   TextFormField(
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
                       hintText: 'Description',
                       hintStyle: const TextStyle(
