@@ -76,7 +76,7 @@ class _LoginState extends State<Create> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your Password';
+                        return 'Please enter event name';
                       }
                       return null;
                     },
@@ -113,7 +113,7 @@ class _LoginState extends State<Create> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your Password';
+                        return 'Please enter event description';
                       }
                       return null;
                     },
