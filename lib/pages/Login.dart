@@ -37,33 +37,32 @@ class _LoginState extends State<Login> {
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Email',
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: TextStyle(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderSide: BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderSide: BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderSide: BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderSide: BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
-                      fillColor: const Color.fromRGBO(255, 255, 255, 0.3),
+                      fillColor: Color.fromRGBO(255, 255, 255, 0.3),
                       filled: true,
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your Email';
+                      } else if (!RegExp(r'\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b')
+                          .hasMatch(value)) {
+                        return 'Enter a valid email address';
                       }
                       return null;
                     },
