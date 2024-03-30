@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project_syncup/commponnent/theme.dart';
+import 'package:project_syncup/commponent/theme.dart';
 
 final _formKey = GlobalKey<FormState>();
 
@@ -31,6 +31,7 @@ class _LoginState extends State<Login> {
                   Text(
                     'Welcome back',
                     style: TextStyle(
+                        color: const Color.fromRGBO(57, 65, 78, 1),
                         fontSize: screenHeight * 0.05,
                         fontWeight: FontWeight.bold),
                   ),
@@ -38,7 +39,8 @@ class _LoginState extends State<Login> {
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Email',
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(
+                          color: Color.fromRGBO(53, 131, 169, 1)),
                       enabledBorder: OutlineInputBorder(
                         borderSide:
                             const BorderSide(color: Colors.white, width: 2.0),
@@ -76,7 +78,8 @@ class _LoginState extends State<Login> {
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Password',
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(
+                          color: Color.fromRGBO(53, 131, 169, 1)),
                       enabledBorder: OutlineInputBorder(
                         borderSide:
                             const BorderSide(color: Colors.white, width: 2.0),
@@ -116,7 +119,7 @@ class _LoginState extends State<Login> {
                         child: Text(
                           'Forgot Password?',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Color.fromRGBO(57, 65, 78, 1),
                             fontSize: 15.0,
                           ),
                         ),
@@ -144,7 +147,7 @@ class _LoginState extends State<Login> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: Color.fromRGBO(57, 65, 78, 1),
                             )),
                       )),
                   SizedBox(height: screenHeight * 0.02),
@@ -173,7 +176,7 @@ class _LoginState extends State<Login> {
                                 style: TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Color.fromRGBO(53, 131, 169, 1),
                                 )),
                           ),
                         ],
