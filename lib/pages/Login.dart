@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:project_syncup/utils/theme/theme.dart';
+import 'package:project_syncup/commponnent/theme.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
