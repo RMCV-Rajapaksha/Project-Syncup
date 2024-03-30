@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
                     'Welcome back',
                     style: TextStyle(
                         color: const Color.fromRGBO(57, 65, 78, 1),
-                        fontSize: screenHeight * 0.05,
+                        fontSize: screenHeight * 0.04,
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: screenHeight * 0.1),

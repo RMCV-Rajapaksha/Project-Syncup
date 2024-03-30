@@ -29,10 +29,17 @@ class _LoginState extends State<Create> {
               child: Column(
                 children: [
                   SizedBox(height: screenHeight * 0.1),
+                  Text(
+                    'Create New Event',
+                    style: TextStyle(
+                        color: const Color.fromRGBO(57, 65, 78, 1),
+                        fontSize: screenHeight * 0.04,
+                        fontWeight: FontWeight.bold),
+                  ),
                   SizedBox(height: screenHeight * 0.02),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: 'Password',
+                      hintText: 'Event Type',
                       hintStyle: const TextStyle(
                           color: Color.fromRGBO(53, 131, 169, 1)),
                       enabledBorder: OutlineInputBorder(
@@ -66,6 +73,77 @@ class _LoginState extends State<Create> {
                     },
                   ),
                   SizedBox(height: screenHeight * 0.02),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Event Name',
+                      hintStyle: const TextStyle(
+                          color: Color.fromRGBO(53, 131, 169, 1)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      fillColor: const Color.fromRGBO(255, 255, 255, 0.3),
+                      filled: true,
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Password';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Description',
+                      hintStyle: const TextStyle(
+                          color: Color.fromRGBO(53, 131, 169, 1)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      fillColor: const Color.fromRGBO(255, 255, 255, 0.3),
+                      filled: true,
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Password';
+                      }
+                      return null;
+                    },
+                  ),
                   SizedBox(height: screenHeight * 0.02),
                   Container(
                       height: screenHeight * 0.06,
@@ -83,7 +161,7 @@ class _LoginState extends State<Create> {
                             );
                           }
                         },
-                        child: const Text('Login',
+                        child: const Text('Create',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
