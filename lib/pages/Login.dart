@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_syncup/commponnent/theme.dart';
 
@@ -28,7 +29,7 @@ class _LoginState extends State<Login> {
               child: Column(
                 children: [
                   Text(
-                    'Wellcome back',
+                    'Welcome back',
                     style: TextStyle(
                         fontSize: screenHeight * 0.05,
                         fontWeight: FontWeight.bold),
@@ -37,24 +38,28 @@ class _LoginState extends State<Login> {
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Email',
-                      hintStyle: TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 2.0),
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 2.0),
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 2.0),
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 2.0),
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
-                      fillColor: Color.fromRGBO(255, 255, 255, 0.3),
+                      fillColor: const Color.fromRGBO(255, 255, 255, 0.3),
                       filled: true,
                     ),
                     validator: (value) {
@@ -106,7 +111,16 @@ class _LoginState extends State<Login> {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text('Forget Password?'),
+                      TextButton(
+                        onPressed: null,
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: screenHeight * 0.02),
