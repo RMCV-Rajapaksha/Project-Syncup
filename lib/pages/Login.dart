@@ -169,12 +169,16 @@ class _LoginState extends State<Login> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.g_translate, color: Colors.black),
+                          Image.asset(
+                            'assets/icons/google.png',
+                            width: 24.0,
+                            height: 24.0,
+                          ),
                           TextButton(
                             onPressed: () {},
                             child: const Text('Login with your google',
                                 style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromRGBO(53, 131, 169, 1),
                                 )),
