@@ -7,7 +7,7 @@ void main() {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => const Product(),
+      builder: (context) => const Login(),
     ),
   );
 }

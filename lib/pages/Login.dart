@@ -1,76 +1,27 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:project_syncup/utils/theme/theme.dart';
 
-class Product extends StatefulWidget {
-  const Product({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Product> createState() => _ProductState();
+  State<Login> createState() => _ProductState();
 }
 
-class _ProductState extends State<Product> {
+class _ProductState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      body: Container(
-        width: screenWidth,
-        height: screenHeight,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/Background.png'),
-            fit: BoxFit.cover, // Ensure the image covers the entire container
-          ),
-        ),
-        child: Content(
-          screenHeight: screenHeight,
-          screenWidth: screenWidth,
-        ),
-      ),
-    );
-  }
-}
-
-class Content extends StatelessWidget {
-  final double screenHeight;
-  final double screenWidth;
-
-  const Content({
-    required this.screenHeight,
-    required this.screenWidth,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: screenWidth,
-      height: screenHeight,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        border: Border.all(color: Colors.white, width: 2),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            const Color.fromRGBO(57, 189, 176, 8).withOpacity(0.5),
-            const Color.fromRGBO(35, 92, 163, 8).withOpacity(0.8),
-          ],
-        ),
-      ),
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Welcome to SyncUp',
+    return Template(
+        screenWidth: screenWidth,
+        screenHeight: screenHeight,
+        theChild: const Text('SyncUp Login Page',
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
+                color: Color(0xE4303643),
+                fontSize: 30,
+                fontWeight: FontWeight.bold)));
   }
 }
