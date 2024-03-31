@@ -39,8 +39,14 @@ class _LoginState extends State<Create> {
                         fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    child: Image.asset(
-                        'assets/images/pexels-marta-dzedyshko-3302489.png'),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: ClipRRect(
+                      borderRadius:
+                          BorderRadius.circular(15.0), // Add this line
+                      child: Image.asset('assets/images/cake.jpg'),
+                    ),
                   ),
 
                   // DropdownButton<String>(value: dropdownValue, onChanged: onChanged),
