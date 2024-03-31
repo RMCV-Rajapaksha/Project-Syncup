@@ -43,8 +43,7 @@ class _LoginState extends State<Create> {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(15.0), // Add this line
+                      borderRadius: BorderRadius.circular(15.0),
                       child: Image.asset('assets/images/cake.jpg'),
                     ),
                   ),
