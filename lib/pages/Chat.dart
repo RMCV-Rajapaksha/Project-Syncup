@@ -75,7 +75,7 @@ class _LoginState extends State<ChatPage> {
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.blue),
+                      color: const Color.fromARGB(255, 39, 75, 105)),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
@@ -83,6 +83,86 @@ class _LoginState extends State<ChatPage> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.blue),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                      'afcemvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvfkfnln'),
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 18),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color.fromARGB(255, 39, 75, 105)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                        'afcemvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvfkfnln'),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.blue),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                      'afcemvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvfkfnln'),
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 18),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color.fromARGB(255, 39, 75, 105)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                        'afcemvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvfkfnln'),
+                  ),
+                ),
+              ),
+              Spacer(),
+              Container(
+                padding: EdgeInsets.only(bottom: 10),
+                height: 45,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.grey,
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Icon(Icons.camera_alt_outlined),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
