@@ -24,10 +24,15 @@ class _LoginState extends State<ChatPage> {
             children: [
               Row(
                 children: [
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundImage:
-                        Image.asset('assets/images/Background.png').image,
+                  IconButton(
+                    icon: Icon(
+                      Icons.keyboard_backspace_outlined,
+                      color: Colors.black,
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      // Handle search button pressed
+                    },
                   ),
                   SizedBox(
                     width: 10,
@@ -38,11 +43,14 @@ class _LoginState extends State<ChatPage> {
                       fontSize: 18,
                     ),
                   ),
-                  Icon(
-                    Icons.search_rounded,
-                    color: Colors.black,
-                    size: 40,
-                  )
+                  SizedBox(
+                    width: 170,
+                  ),
+                  CircleAvatar(
+                    radius: 25,
+                    backgroundImage:
+                        Image.asset('assets/images/Background.png').image,
+                  ),
                 ],
               ),
               SizedBox(
