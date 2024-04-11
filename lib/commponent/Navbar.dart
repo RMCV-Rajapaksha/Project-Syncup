@@ -9,6 +9,8 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
+  bool _isDialOpen = false;
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -21,10 +23,22 @@ class _NavbarState extends State<Navbar> {
         floatingActionButton: SpeedDial(
           animatedIcon: AnimatedIcons.menu_close,
           animatedIconTheme: IconThemeData(size: 22.0),
-          backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+          backgroundColor: _isDialOpen
+              ? Colors.transparent
+              : const Color.fromRGBO(53, 131, 169, 1),
           visible: true,
           curve: Curves.bounceIn,
-          closeManually: true, // Set this to true
+          closeManually: true,
+          onOpen: () {
+            setState(() {
+              _isDialOpen = true;
+            });
+          },
+          onClose: () {
+            setState(() {
+              _isDialOpen = false;
+            });
+          },
           children: [
             SpeedDialChild(
               child: Icon(Icons.arrow_circle_down_outlined),
