@@ -22,7 +22,7 @@ class _NavbarState extends State<Navbar> {
         backgroundColor: Colors.transparent,
         floatingActionButton: SpeedDial(
           animatedIcon: AnimatedIcons.menu_close,
-          animatedIconTheme: IconThemeData(size: 22.0),
+          animatedIconTheme: const IconThemeData(size: 22.0),
           backgroundColor: _isDialOpen
               ? Colors.transparent
               : const Color.fromRGBO(53, 131, 169, 1),
@@ -41,42 +41,54 @@ class _NavbarState extends State<Navbar> {
           },
           children: [
             SpeedDialChild(
-              child: Icon(Icons.arrow_circle_down_outlined),
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: const Icon(Icons.arrow_circle_down_outlined),
+              ),
               onTap: () {
                 Navigator.pushNamed(context, '/create');
               },
               label: 'Change plan',
-              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
             ),
             SpeedDialChild(
-              child: Icon(Icons.qr_code),
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: const Icon(Icons.qr_code),
+              ),
               backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'Scan QR',
-              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
             ),
             SpeedDialChild(
-              child: Icon(Icons.camera_alt),
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: const Icon(Icons.camera_alt),
+              ),
               backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'camera',
-              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
             ),
             SpeedDialChild(
-              child: Icon(Icons.add),
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: const Icon(Icons.add),
+              ),
               backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'New event',
-              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
             ),
           ],
