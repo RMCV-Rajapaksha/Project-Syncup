@@ -27,13 +27,12 @@ class _NavbarState extends State<Navbar> {
           children: [
             SpeedDialChild(
               child: Icon(Icons.arrow_circle_down_outlined),
-              backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
               onTap: () {
                 Navigator.pushNamed(context, '/create');
               },
               label: 'Change plan',
-              labelStyle: TextStyle(fontSize: 18.0),
-              labelBackgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelBackgroundColor: Colors.transparent,
             ),
             SpeedDialChild(
               child: Icon(Icons.qr_code),
@@ -42,8 +41,8 @@ class _NavbarState extends State<Navbar> {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'Scan QR',
-              labelStyle: TextStyle(fontSize: 18.0),
-              labelBackgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelBackgroundColor: Colors.transparent,
             ),
             SpeedDialChild(
               child: Icon(Icons.camera_alt),
@@ -52,8 +51,8 @@ class _NavbarState extends State<Navbar> {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'camera',
-              labelStyle: TextStyle(fontSize: 18.0),
-              labelBackgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelBackgroundColor: Colors.transparent,
             ),
             SpeedDialChild(
               child: Icon(Icons.add),
@@ -62,8 +61,8 @@ class _NavbarState extends State<Navbar> {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'New event',
-              labelStyle: TextStyle(fontSize: 18.0),
-              labelBackgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+              labelStyle: TextStyle(fontSize: 18.0, color: Colors.white),
+              labelBackgroundColor: Colors.transparent,
             ),
           ],
         ),
