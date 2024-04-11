@@ -24,6 +24,7 @@ class _NavbarState extends State<Navbar> {
           backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
           visible: true,
           curve: Curves.bounceIn,
+          closeManually: true, // Set this to true
           children: [
             SpeedDialChild(
               child: Icon(Icons.arrow_circle_down_outlined),
