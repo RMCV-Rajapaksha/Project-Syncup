@@ -41,55 +41,54 @@ class _NavbarState extends State<Navbar> {
           },
           children: [
             SpeedDialChild(
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: const Icon(Icons.arrow_circle_down_outlined),
-              ),
+              child: Icon(Icons.camera_alt, size: 20),
+              backgroundColor: Colors.white,
               onTap: () {
-                Navigator.pushNamed(context, '/create');
+                Navigator.pushNamed(context, '/chat');
               },
-              label: 'Change plan',
+              label: 'Update Now',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(150),
+              ),
             ),
             SpeedDialChild(
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: const Icon(Icons.qr_code),
-              ),
-              backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+              child: Icon(Icons.qr_code),
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'Scan QR',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+              ),
             ),
             SpeedDialChild(
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: const Icon(Icons.camera_alt),
-              ),
-              backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+              child: Icon(Icons.camera_alt, size: 20),
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'camera',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+              ),
             ),
             SpeedDialChild(
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: const Icon(Icons.add),
-              ),
-              backgroundColor: const Color.fromRGBO(53, 131, 169, 1),
+              child: Icon(Icons.add, size: 20),
+              backgroundColor: Colors.white,
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'New event',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
               labelBackgroundColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+              ),
             ),
           ],
         ),
