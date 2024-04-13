@@ -21,24 +21,9 @@ class _NavbarState extends State<Navbar> {
       theChild: Scaffold(
         backgroundColor: Colors.transparent,
         floatingActionButton: SpeedDial(
+          overlayColor: Colors.transparent,
           animatedIcon: AnimatedIcons.menu_close,
           animatedIconTheme: const IconThemeData(size: 22.0),
-          backgroundColor: _isDialOpen
-              ? Colors.transparent
-              : const Color.fromRGBO(53, 131, 169, 1),
-          visible: true,
-          curve: Curves.bounceIn,
-          closeManually: true,
-          onOpen: () {
-            setState(() {
-              _isDialOpen = true;
-            });
-          },
-          onClose: () {
-            setState(() {
-              _isDialOpen = false;
-            });
-          },
           children: [
             SpeedDialChild(
               child: Icon(Icons.camera_alt, size: 20),
@@ -48,7 +33,8 @@ class _NavbarState extends State<Navbar> {
               },
               label: 'Update Now',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
-              labelBackgroundColor: Colors.transparent,
+              labelBackgroundColor: Color.fromARGB(0, 255, 255,
+                  255), // Setting label background color to transparent
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(150),
               ),
