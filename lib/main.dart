@@ -12,7 +12,7 @@ void main() {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => Intro_page3(),
+      builder: (context) => Onboarding(),
     ),
   );
 }

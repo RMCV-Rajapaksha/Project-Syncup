@@ -13,7 +13,7 @@ class Intro_page3 extends StatelessWidget {
       screenHeight: screenHeight, 
       theChild: 
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               SizedBox(height: screenHeight * 0.1),
