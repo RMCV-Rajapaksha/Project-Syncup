@@ -23,6 +23,7 @@ class Intro_page1 extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontSize: 48,
               ),),
+              Image.asset('assets/images/intro1.png', width: screenWidth * 0.8, height: screenHeight * 0.3, fit: BoxFit.fill,),
               const Text("Capture and Share Your Journey, Together.",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,

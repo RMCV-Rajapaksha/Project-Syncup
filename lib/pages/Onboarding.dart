@@ -50,7 +50,7 @@ class _OnboardingState extends State<Onboarding> {
               ],),
 
               Container(
-                alignment: Alignment(0, 0.75),
+                alignment: Alignment(0, 0.85),
                 child: 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

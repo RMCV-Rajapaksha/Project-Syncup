@@ -23,6 +23,7 @@ class Intro_page2 extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontSize: 48,
               ),),
+              Image.asset('assets/images/intro2.png', width: screenWidth * 0.8, height: screenHeight * 0.3, fit: BoxFit.fill,),
               const Text("How SyncUP Works",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
