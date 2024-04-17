@@ -26,15 +26,15 @@ class _NavbarState extends State<Navbar> {
           animatedIconTheme: const IconThemeData(size: 22.0),
           children: [
             SpeedDialChild(
-              child: Icon(Icons.camera_alt, size: 20),
-              backgroundColor: Colors.white,
+              child: const Icon(Icons.camera_alt, size: 20),
+              backgroundColor: const Color.fromARGB(255, 75, 73, 73),
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'Update Now',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
-              labelBackgroundColor: Color.fromARGB(0, 255, 255,
-                  255), // Setting label background color to transparent
+              // ignore: prefer_const_constructors
+              labelBackgroundColor: Color.fromARGB(0, 255, 255, 255),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(150),
               ),
@@ -52,13 +52,14 @@ class _NavbarState extends State<Navbar> {
               ),
             ),
             SpeedDialChild(
-              child: Icon(Icons.camera_alt, size: 20),
+              child: const Icon(Icons.camera_alt, size: 20),
               onTap: () {
                 Navigator.pushNamed(context, '/chat');
               },
               label: 'camera',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
-              labelBackgroundColor: Colors.transparent,
+              labelBackgroundColor: Colors
+                  .transparent, // Setting label background color to transparent
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(100),
               ),
