@@ -158,7 +158,11 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                   SizedBox(height: screenHeight * 0.02),
-                  Container(
+                  GestureDetector(
+                    onTap: () {
+                      // Add your button functionality here
+                    },
+                    child: Container(
                       height: screenHeight * 0.06,
                       width: screenWidth * 0.95,
                       decoration: BoxDecoration(
@@ -174,17 +178,18 @@ class _LoginState extends State<Login> {
                             width: 24.0,
                             height: 24.0,
                           ),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text('Login with your google',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromRGBO(53, 131, 169, 1),
-                                )),
-                          ),
+                          const Text(
+                            'Login with your google',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(53, 131, 169, 1),
+                            ),
+                          )
                         ],
-                      )),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

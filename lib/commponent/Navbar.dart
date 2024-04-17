@@ -33,7 +33,6 @@ class _NavbarState extends State<Navbar> {
               },
               label: 'Update Now',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
-              // ignore: prefer_const_constructors
               labelBackgroundColor: Color.fromARGB(0, 255, 255, 255),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(150),
@@ -58,8 +57,7 @@ class _NavbarState extends State<Navbar> {
               },
               label: 'camera',
               labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
-              labelBackgroundColor: Colors
-                  .transparent, // Setting label background color to transparent
+              labelBackgroundColor: Colors.transparent,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(100),
               ),
