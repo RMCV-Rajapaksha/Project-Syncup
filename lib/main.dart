@@ -20,8 +20,8 @@ void main() async {
 
   runApp(
     DevicePreview(
-      enabled: true,
-      builder: (context) => Onboarding(),
+      enabled: false,
+      builder: (context) => Login(),
     ),
   );
 }
