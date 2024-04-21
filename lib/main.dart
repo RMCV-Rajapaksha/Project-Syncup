@@ -7,17 +7,17 @@ import 'package:project_syncup/pages/Chat.dart';
 import 'package:project_syncup/pages/Login.dart';
 
 void main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await Future.delayed(
-    Duration(seconds: 2)
-    );
-    FlutterNativeSplash.remove();
+  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // await Future.delayed(
+  //   const Duration(seconds: 2)
+  //   );
+  //   FlutterNativeSplash.remove();
 
 
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => Login(),
     ),
   );
