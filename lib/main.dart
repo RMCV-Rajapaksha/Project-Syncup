@@ -17,11 +17,10 @@ void main() async {
   //   );
   //   FlutterNativeSplash.remove();
 
-
   runApp(
     DevicePreview(
-      enabled: false,
-      builder: (context) => Login(),
+      enabled: true,
+      builder: (context) => Onboarding(),
     ),
   );
 }
