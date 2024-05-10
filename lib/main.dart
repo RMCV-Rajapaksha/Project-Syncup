@@ -10,17 +10,10 @@ import 'package:project_syncup/pages/intro_pages/page2.dart';
 import 'package:project_syncup/pages/intro_pages/page3.dart';
 
 void main() async {
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  // await Future.delayed(
-  //   const Duration(seconds: 2)
-  //   );
-  //   FlutterNativeSplash.remove();
-
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => Onboarding(),
+      builder: (context) => Navbar(),
     ),
   );
 }

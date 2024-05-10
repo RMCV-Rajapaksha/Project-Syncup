@@ -18,71 +18,71 @@ class Onboarding extends StatefulWidget {
 }
 
 //keep track of last page
-bool lastPage = false;  
+bool lastPage = false;
 
 class _OnboardingState extends State<Onboarding> {
-
   //controller to kee track which page we're on
-  PageController _controller = PageController(); 
-  
+  PageController _controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
-          children: [
-            PageView(
-              controller: _controller,
-              onPageChanged: (index) {
-                if (index == 2) {
-                  setState(() {
-                    lastPage = true;
-                  });
-                } else {
-                  setState(() {
-                    lastPage = false;
-                  });
-                }
-              },
+      children: [
+        PageView(
+          controller: _controller,
+          onPageChanged: (index) {
+            if (index == 2) {
+              setState(() {
+                lastPage = true;
+              });
+            } else {
+              setState(() {
+                lastPage = false;
+              });
+            }
+          },
+          children: const [
+            Intro_page1(),
+            Intro_page2(),
+            Intro_page3(),
+          ],
+        ),
+        Container(
+            alignment: Alignment(0, 0.85),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Intro_page1(),
-                Intro_page2(),
-                Intro_page3(),
-              ],),
-
-              Container(
-                alignment: Alignment(0, 0.85),
-                child: 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  //skip button
-                  GestureDetector(
+                //skip button
+                GestureDetector(
                     onTap: () {
                       _controller.jumpToPage(2);
                     },
-                    child: Text("skip")
-                    ),
+                    child: Text("skip")),
 
-                  //dot indicator
-                  SmoothPageIndicator(controller: _controller, count: 3),
+                //dot indicator
+                SmoothPageIndicator(controller: _controller, count: 3),
 
-                  //next/done button
-                  lastPage ? GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
-                    },
-                    child: Text("Get started")
-                    ) :
-                  GestureDetector(
-                    onTap: () {
-                      _controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeIn);
-                    },
-                    child: Text("Next")
-                    ),
-                ],
-              )),
-          ],
-        )
-          );
+                //next/done button
+                lastPage
+                    ? GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Login()));
+                        },
+                        child: Text("Get started"))
+                    : GestureDetector(
+                        onTap: () {
+                          _controller.nextPage(
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.easeIn);
+                        },
+                        child: Text("Next")),
+              ],
+            )),
+      ],
+    ));
   }
 }
