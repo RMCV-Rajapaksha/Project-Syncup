@@ -14,6 +14,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _LoginState extends State<SignUp> {
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -42,10 +44,31 @@ class _LoginState extends State<SignUp> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.1),
+                  SizedBox(height: screenHeight * 0.05),
+                  Text(
+                    'Sign up for SyncUp',
+                    style: TextStyle(
+                      color: Color.fromRGBO(53, 131, 169, 1),
+                      fontSize: screenHeight * 0.02,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  CustomInputField(
+                    hintText: 'First Name',
+                    controller: _firstNameController,
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  CustomInputField(
+                    hintText: 'Last Name',
+                    controller: _lastNameController,
+                    obscureText: true,
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
                   CustomInputField(
                     hintText: 'Email',
                     controller: _emailController,
+                    obscureText: true,
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomInputField(
@@ -71,7 +94,7 @@ class _LoginState extends State<SignUp> {
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomButton(
-                    text: 'Login',
+                    text: 'SingUp',
                     onPressed: () {
                       // Handle login action
                       ScaffoldMessenger.of(context).showSnackBar(
