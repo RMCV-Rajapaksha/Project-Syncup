@@ -55,7 +55,7 @@ class _NavbarState extends State<Home> {
                       radius:
                           screenHeight * 0.025, // Adjust the radius as needed
                       backgroundImage: AssetImage(
-                          'assets/logod/SyncUp_logo.png'), // Ensure this path is correct
+                          'assets/logos/SyncUp_logo.png'), // Ensure this path is correct
                     ),
                     SizedBox(width: screenWidth * 0.5),
                     Text(
@@ -71,7 +71,7 @@ class _NavbarState extends State<Home> {
                       radius:
                           screenHeight * 0.025, // Adjust the radius as needed
                       backgroundImage: AssetImage(
-                          'assets/logod/SyncUp_logo.png'), // Ensure this path is correct
+                          'assets/logos/SyncUp_logo.png'), // Ensure this path is correct
                     ),
                   ],
                 ),
