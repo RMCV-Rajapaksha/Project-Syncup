@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:project_syncup/commponent/Navbar.dart';
 import 'package:project_syncup/pages/Album.dart';
+import 'package:project_syncup/pages/CreateEvent.dart';
 import 'package:project_syncup/pages/Home.dart';
 import 'package:project_syncup/pages/Login.dart';
 import 'package:project_syncup/pages/Onboarding.dart';
@@ -16,7 +17,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => SignUp(),
+      builder: (context) => CreateEvent(),
     ),
   );
 }
