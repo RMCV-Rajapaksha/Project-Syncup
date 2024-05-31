@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_syncup/commponent/AlbumCard.dart';
 import 'package:project_syncup/commponent/theme.dart';
 
 final _formKey = GlobalKey<FormState>();
@@ -88,25 +89,6 @@ class _AlbumState extends State<Album> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class AlbumCard extends StatelessWidget {
-  const AlbumCard({
-    Key? key,
-    required this.index,
-  }) : super(key: key);
-
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue, // Example background color
-      child: Center(
-        child: Text('Item $index'),
       ),
     );
   }
