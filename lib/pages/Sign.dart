@@ -77,21 +77,6 @@ class _LoginState extends State<SignUp> {
                     obscureText: true,
                   ),
                   SizedBox(height: screenHeight * 0.02),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: null,
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            color: Color.fromRGBO(57, 65, 78, 1),
-                            fontSize: 15.0,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomButton(
                     text: 'SingUp',
