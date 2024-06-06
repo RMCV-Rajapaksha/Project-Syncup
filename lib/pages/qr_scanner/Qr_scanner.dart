@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:project_syncup/commponent/theme.dart';
-import 'package:project_syncup/pages/qr_scanner/result_page.dart';
+import 'package:project_syncup/pages/qr_scanner/Result_page.dart';
+import 'package:project_syncup/pages/qr_scanner/Temp.dart';
 import 'package:qr_scanner_overlay/qr_scanner_overlay.dart';
 
 class QrScanner extends StatefulWidget {
@@ -32,11 +33,11 @@ class _QrScannerState extends State<QrScanner> {
         padding: const EdgeInsets.all(30.0),
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "QR Scanner",
                       style: TextStyle(
@@ -67,19 +68,31 @@ class _QrScannerState extends State<QrScanner> {
               child: Stack(
                 children: [
                   MobileScanner(
-                    onDetect: (barcode) {
-                      if (!isScanCompleted && barcode.raw != null) {
-                        isScanCompleted = true;
-                        String code = barcode.toString() ;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ResultPage(
-                              closeScreen: closeScreen,
-                              code: code,
+                    controller: MobileScannerController(
+                      detectionSpeed: DetectionSpeed.noDuplicates,
+                      returnImage: true,
+                    ),
+                    onDetect: (capture) {
+                      final List<Barcode> barcodes = capture.barcodes;
+                      if (barcodes.isNotEmpty) {
+                        final String barcode = barcodes.first.rawValue ?? '';
+                        print('Barcode detected: $barcode');
+                        if (!isScanCompleted) {
+                          setState(() {
+                            isScanCompleted = true;
+                          });
+
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const TempPage(),
                             ),
-                          ),
-                        );
+                          ).then((_) {
+                            // Reset isScanCompleted when coming back to the scanner page
+                            setState(() {
+                              isScanCompleted = false;
+                            });
+                          });
+                        }
                       }
                     },
                   ),

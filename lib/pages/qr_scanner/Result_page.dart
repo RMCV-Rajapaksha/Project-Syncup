@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_syncup/commponent/theme.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class ResultPage extends StatelessWidget {
@@ -13,10 +12,15 @@ class ResultPage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Template(
-      screenWidth: screenWidth, 
-      screenHeight: screenHeight, 
-      theChild: Padding(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Result Page'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: closeScreen,
+        ),
+      ),
+      body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +54,9 @@ class ResultPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                onPressed: () {}, 
+                onPressed: () {
+                  // Implement copy functionality
+                },
                 child: const Text(
                   "Copy",
                   style: TextStyle(
