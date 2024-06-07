@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_syncup/authentication/auth.dart';
@@ -31,6 +32,27 @@ class _LoginState extends State<Login> {
       theChild: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                return Text('Something went wrong');
+              } else if (snapshot.hasData) {
+                User? user = snapshot.data;
+                if (user == null) {
+                  return Text('User is currently signed out!');
+                } else {
+                  // Get the user ID
+                  String userId = user.uid;
+                  return Text('User is signed in! User ID: $userId');
+                }
+              } else {
+                return Text('No user data available');
+              }
+            },
+          ),
           Form(
             key: _formKey,
             child: Padding(
@@ -75,7 +97,7 @@ class _LoginState extends State<Login> {
                   SizedBox(height: screenHeight * 0.02),
                   CustomButton(
                     text: 'Login',
-                    onPressed: () {
+                    onPressed: () async {
                       _authentication.signIn(
                         _emailController.text,
                         _passwordController.text,
@@ -93,9 +115,7 @@ class _LoginState extends State<Login> {
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   GestureDetector(
-                    onTap: () {
-                      // Add your button functionality here
-                    },
+                    onTap: () {},
                     child: Container(
                       height: screenHeight * 0.06,
                       width: screenWidth * 0.95,

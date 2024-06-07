@@ -64,13 +64,11 @@ class _LoginState extends State<SignUp> {
                   CustomInputField(
                     hintText: 'Last Name',
                     controller: _lastNameController,
-                    obscureText: true,
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomInputField(
                     hintText: 'Email',
                     controller: _emailController,
-                    obscureText: true,
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomInputField(
@@ -82,7 +80,7 @@ class _LoginState extends State<SignUp> {
                   SizedBox(height: screenHeight * 0.02),
                   CustomButton(
                     text: 'SingUp',
-                    onPressed: () {
+                    onPressed: () async {
                       _authentication.register(
                         _emailController.text,
                         _passwordController.text,

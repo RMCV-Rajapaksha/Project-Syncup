@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_syncup/commponent/Button.dart';
 import 'package:project_syncup/commponent/Input.dart';
@@ -12,14 +11,20 @@ class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
 
   @override
-  State<CreateEvent> createState() => _LoginState();
+  State<CreateEvent> createState() => _CreateEventState();
 }
 
-class _LoginState extends State<CreateEvent> {
-  final TextEditingController _firstNameController = TextEditingController();
-  final TextEditingController _lastNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+class _CreateEventState extends State<CreateEvent> {
+  final TextEditingController _eventNameController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final List<String> _eventTypes = [
+    'Birthday',
+    'Trip',
+    'Wedding',
+    'Conference',
+    'Gathering'
+  ];
+  String? _selectedEventType;
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +59,14 @@ class _LoginState extends State<CreateEvent> {
                       child: Container(
                         height: screenHeight * 0.14,
                         width: screenWidth,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('assets/images/cake.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,42 +77,63 @@ class _LoginState extends State<CreateEvent> {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
-                  CustomInputField(
-                    hintText: 'Event Type',
-                    controller: _firstNameController,
+                  DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                      hintText: 'Event Type',
+                      hintStyle: const TextStyle(
+                        color: Color.fromRGBO(53, 131, 169, 1),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      fillColor: const Color.fromRGBO(255, 255, 255, 0.3),
+                      filled: true,
+                    ),
+                    value: _selectedEventType,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedEventType = newValue;
+                      });
+                    },
+                    items: _eventTypes
+                        .map<DropdownMenuItem<String>>((String type) {
+                      return DropdownMenuItem<String>(
+                        value: type,
+                        child: Text(type),
+                      );
+                    }).toList(),
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomInputField(
                     hintText: 'Event Name',
-                    controller: _lastNameController,
-                    obscureText: true,
+                    controller: _eventNameController,
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomInputField(
                     hintText: 'Description',
-                    controller: _emailController,
-                    obscureText: true,
+                    controller: _descriptionController,
                   ),
-                  SizedBox(height: screenHeight * 0.02),
-                  SizedBox(height: screenHeight * 0.02),
                   SizedBox(height: screenHeight * 0.02),
                   CustomButton(
                     text: 'Create',
-                    onPressed: () async {
-                      var db = FirebaseFirestore
-                          .instance; // Create a new user with a first and last name
-                      final user = <String, dynamic>{
-                        "first": "Alan",
-                        "middle": "Mathison",
-                        "last": "Turing",
-                        "born": 1912
-                      };
-
-// Add a new document with a generated ID
-                      db.collection("users").add(user).then((DocumentReference
-                              doc) =>
-                          print('DocumentSnapshot added with ID: ${doc.id}'));
-                    },
+                    onPressed: () async {},
                     width: screenWidth * 0.95,
                     height: screenHeight * 0.06,
                   ),
