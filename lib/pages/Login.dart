@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_syncup/authentication/auth.dart';
 import 'package:project_syncup/commponent/Button.dart';
 import 'package:project_syncup/commponent/Input.dart';
 import 'package:project_syncup/commponent/theme.dart';
@@ -12,6 +13,8 @@ class Login extends StatefulWidget {
   @override
   State<Login> createState() => _LoginState();
 }
+
+Authentication _authentication = Authentication();
 
 class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
@@ -73,9 +76,9 @@ class _LoginState extends State<Login> {
                   CustomButton(
                     text: 'Login',
                     onPressed: () {
-                      // Handle login action
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                      _authentication.signIn(
+                        _emailController.text,
+                        _passwordController.text,
                       );
                     },
                     width: screenWidth * 0.95,

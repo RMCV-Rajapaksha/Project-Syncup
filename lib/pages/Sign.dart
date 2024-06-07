@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_syncup/authentication/auth.dart';
 import 'package:project_syncup/commponent/Button.dart';
 import 'package:project_syncup/commponent/Input.dart';
 import 'package:project_syncup/commponent/theme.dart';
@@ -19,6 +20,7 @@ class _LoginState extends State<SignUp> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  Authentication _authentication = Authentication();
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -81,9 +83,9 @@ class _LoginState extends State<SignUp> {
                   CustomButton(
                     text: 'SingUp',
                     onPressed: () {
-                      // Handle login action
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                      _authentication.register(
+                        _emailController.text,
+                        _passwordController.text,
                       );
                     },
                     width: screenWidth * 0.95,
@@ -98,9 +100,7 @@ class _LoginState extends State<SignUp> {
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   GestureDetector(
-                    onTap: () {
-                      // Add your button functionality here
-                    },
+                    onTap: () {},
                     child: Container(
                       height: screenHeight * 0.06,
                       width: screenWidth * 0.95,
