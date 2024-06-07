@@ -38,5 +38,20 @@ class DatabaseConnection {
   }
 
   //create event
-  Future<void> addEvent() async {}
+  Future<void> addEvent(String id, String eventType, String eventName,
+      String description, String url) async {
+    final event = <String, String>{
+      "createrId": id,
+      "eventType": eventType,
+      "eventName": eventName,
+      "description": description,
+      "URL": url
+    };
+    var db = FirebaseFirestore.instance;
+    try {
+      await db.collection("events").doc(id).update(event);
+    } catch (e) {
+      print(e);
+    }
+  }
 }
