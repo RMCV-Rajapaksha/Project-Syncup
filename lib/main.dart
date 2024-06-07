@@ -1,5 +1,7 @@
+// Project id -syncup-f1a48
 import 'package:device_preview/device_preview.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:project_syncup/commponent/Navbar.dart';
@@ -13,11 +15,28 @@ import 'package:project_syncup/pages/intro_pages/page1.dart';
 import 'package:project_syncup/pages/intro_pages/page2.dart';
 import 'package:project_syncup/pages/intro_pages/page3.dart';
 
-void main() async {
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:device_preview/device_preview.dart';
+// Replace with the correct path
+
+Future<void> main(List<String> args) async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => CreateEvent(),
+      builder: (context) => MyApp(),
     ),
   );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CreateEvent();
+  }
 }
