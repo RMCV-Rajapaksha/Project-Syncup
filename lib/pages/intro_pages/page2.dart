@@ -44,7 +44,7 @@ class Intro_page2 extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  "How SyncUP Works",
+                  "Chronicles Collage: Eventful Albums by Date",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 24,
@@ -52,50 +52,10 @@ class Intro_page2 extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 const Text(
-                  "Join an Event:",
+                  "Create and view collective albums, organized by events  and date",
                   style: TextStyle(
                     fontWeight: FontWeight.w300,
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                const Text(
-                  "Enter the event code or scan the QR to join the event's live feed.",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 15,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                const Text(
-                  "Share Your Moment:",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                const Text(
-                  "Upload your photos and videos to contribute to the event's collective memory.",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 15,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                const Text(
-                  "Relive the Experience:",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                const Text(
-                  "Browse through a rich tapestry of shared experiences from multiple perspectives.",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 15,
+                    fontSize: 17,
                   ),
                   textAlign: TextAlign.left,
                 ),

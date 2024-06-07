@@ -51,7 +51,7 @@ class Intro_page1 extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  "Join a community where your memories become part of a larger story. Connect with friends, family, and fellow event-goers by sharing your photos and videos in real-time. Experience events from every angle, through the eyes of all participants.",
+                  "Explore a live gallery of journeys and events, shared by loved ones",
                   style: TextStyle(
                     fontWeight: FontWeight.w300,
                     fontSize: 17,

@@ -53,50 +53,10 @@ class Intro_page3 extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               const Text(
-                "Inclusive:",
+                "Customize settings for easy navigation and personalized interaction",
                 style: TextStyle(
                   fontWeight: FontWeight.w300,
-                  fontSize: 18,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const Text(
-                "Everyone's a photographer, capturing moments that matter.",
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const Text(
-                "Affordable:",
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 18,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const Text(
-                "Say goodbye to expensive photography services.",
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const Text(
-                "Simple:",
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 18,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              const Text(
-                "Easy to use, even if you're new to social media platforms.**Immersive:** Feel the vibe of the event through a collaborative gallery.",
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
+                  fontSize: 17,
                 ),
                 textAlign: TextAlign.left,
               ),
