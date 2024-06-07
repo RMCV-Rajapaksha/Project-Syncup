@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_syncup/commponent/Button.dart';
 import 'package:project_syncup/commponent/Input.dart';
 import 'package:project_syncup/commponent/theme.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final _formKey = GlobalKey<FormState>();
@@ -24,12 +23,21 @@ class _CreateEventState extends State<CreateEvent> {
     'Conference',
     'Gathering'
   ];
+  final Map<String, String> _eventImages = {
+    'Birthday': 'assets/images/Birthday.jpeg',
+    'Trip': 'assets/images/Trip.jpeg',
+    'Wedding': 'assets/images/Wedding.jpeg',
+    'Conference': 'assets/images/Conference.jpeg',
+    'Gathering': 'assets/images/Gathering.jpeg',
+  };
   String? _selectedEventType;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    String selectedImage =
+        _eventImages[_selectedEventType] ?? 'assets/images/placeholder.jpeg';
 
     return Template(
       screenWidth: screenWidth,
@@ -59,9 +67,9 @@ class _CreateEventState extends State<CreateEvent> {
                       child: Container(
                         height: screenHeight * 0.14,
                         width: screenWidth,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/cake.jpg'),
+                            image: AssetImage(selectedImage),
                             fit: BoxFit.cover,
                           ),
                         ),
