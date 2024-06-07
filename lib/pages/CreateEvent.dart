@@ -4,6 +4,8 @@ import 'package:project_syncup/commponent/Button.dart';
 import 'package:project_syncup/commponent/Input.dart';
 import 'package:project_syncup/commponent/theme.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 final _formKey = GlobalKey<FormState>();
 
 class CreateEvent extends StatefulWidget {
@@ -91,11 +93,20 @@ class _LoginState extends State<CreateEvent> {
                   SizedBox(height: screenHeight * 0.02),
                   CustomButton(
                     text: 'Create',
-                    onPressed: () {
-                      // Handle login action
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
-                      );
+                    onPressed: () async {
+                      var db = FirebaseFirestore
+                          .instance; // Create a new user with a first and last name
+                      final user = <String, dynamic>{
+                        "first": "Alan",
+                        "middle": "Mathison",
+                        "last": "Turing",
+                        "born": 1912
+                      };
+
+// Add a new document with a generated ID
+                      db.collection("users").add(user).then((DocumentReference
+                              doc) =>
+                          print('DocumentSnapshot added with ID: ${doc.id}'));
                     },
                     width: screenWidth * 0.95,
                     height: screenHeight * 0.06,

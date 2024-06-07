@@ -21,6 +21,7 @@ import 'package:device_preview/device_preview.dart';
 // Replace with the correct path
 
 Future<void> main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
