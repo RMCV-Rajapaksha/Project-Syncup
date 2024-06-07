@@ -65,7 +65,7 @@ class _CreateEventState extends State<CreateEvent> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
                       child: Container(
-                        height: screenHeight * 0.14,
+                        height: screenHeight * 0.16,
                         width: screenWidth,
                         decoration: BoxDecoration(
                           image: DecorationImage(
