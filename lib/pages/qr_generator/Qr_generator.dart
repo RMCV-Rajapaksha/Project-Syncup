@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_syncup/commponent/theme.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class QrGenerator extends StatefulWidget {
   const QrGenerator({super.key});
@@ -10,6 +10,8 @@ class QrGenerator extends StatefulWidget {
 }
 
 class _QrGeneratorState extends State<QrGenerator> {
+  TextEditingController urlController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -18,40 +20,40 @@ class _QrGeneratorState extends State<QrGenerator> {
     return Template(
       screenWidth: screenWidth, 
       screenHeight: screenHeight, 
-      theChild: const Padding(
-        padding: EdgeInsets.all(30) ,
+      theChild: Padding(
+        padding: const EdgeInsets.all(30),
         child: Column(
           children: [
-            Text(
+            const Text(
               "QR Generator",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               "Enter the text you want to convert to QR code",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
-              decoration: InputDecoration(
+              controller: urlController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Enter text',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
-
+              child: 
             ),
-          ],),
-
-        
-        )
-      );
+          ],
+        ),
+      ),
+    );
   }
 }

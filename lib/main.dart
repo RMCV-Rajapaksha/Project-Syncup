@@ -19,7 +19,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => QrScanner(),
+      builder: (context) => QrGenerator(),
     ),
   );
 }
