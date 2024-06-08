@@ -28,7 +28,7 @@ Future<void> main(List<String> args) async {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => Home(),
+      builder: (context) => MyApp(),
     ),
   );
 }

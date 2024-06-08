@@ -4,6 +4,7 @@ import 'package:project_syncup/commponent/Input.dart';
 import 'package:project_syncup/commponent/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:project_syncup/logics/databse/UserDatabaseConnection.dart';
 
 final _formKey = GlobalKey<FormState>();
 
@@ -40,6 +41,7 @@ class _CreateEventState extends State<CreateEvent> {
     String selectedImage =
         _eventImages[_selectedEventType] ?? 'assets/images/placeholder.jpeg';
 
+    Users user = Users();
     return Template(
       screenWidth: screenWidth,
       screenHeight: screenHeight,
@@ -142,7 +144,9 @@ class _CreateEventState extends State<CreateEvent> {
                   SizedBox(height: screenHeight * 0.02),
                   CustomButton(
                     text: 'Create',
-                    onPressed: () async {},
+                    onPressed: () async {
+                      user.addEventToUser("fguyghdasf", "dsf");
+                    },
                     width: screenWidth * 0.95,
                     height: screenHeight * 0.06,
                   ),
