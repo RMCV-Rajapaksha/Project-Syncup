@@ -19,7 +19,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => QrGenerator(),
+      builder: (context) => Intro_page1(),
     ),
   );
 }

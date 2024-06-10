@@ -47,10 +47,7 @@ class _QrGeneratorState extends State<QrGenerator> {
                 labelText: 'Enter text',
               ),
             ),
-            const SizedBox(height: 20),
-            Center(
-              child: 
-            ),
+            const SizedBox(height: 20)
           ],
         ),
       ),
