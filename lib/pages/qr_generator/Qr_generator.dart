@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project_syncup/commponent/Button.dart';
 import 'package:project_syncup/commponent/theme.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:project_syncup/pages/Home.dart';
 
 class QrGenerator extends StatefulWidget {
   const QrGenerator({super.key});
@@ -11,6 +13,17 @@ class QrGenerator extends StatefulWidget {
 
 class _QrGeneratorState extends State<QrGenerator> {
   TextEditingController urlController = TextEditingController();
+
+  Function shareLink() {
+    return () {};
+  }
+
+  void navigateBack(){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Home()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +60,20 @@ class _QrGeneratorState extends State<QrGenerator> {
                 labelText: 'Enter text',
               ),
             ),
-            const SizedBox(height: 20)
+            const SizedBox(height: 20),
+            QrImageView(
+              data: 'http://localhost:3468/',
+              version: QrVersions.auto,
+              size: 200.0,
+              backgroundColor: Colors.white,
+            ),
+            const SizedBox(height: 40),
+            CustomButton(
+              text: 'Done', 
+              onPressed: navigateBack, 
+              width: screenWidth * 0.2 , 
+              height: screenHeight*0.1
+              )
           ],
         ),
       ),
