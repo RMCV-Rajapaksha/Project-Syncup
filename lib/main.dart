@@ -10,6 +10,9 @@ import 'package:project_syncup/pages/CreateEvent.dart';
 import 'package:project_syncup/pages/Home.dart';
 import 'package:project_syncup/pages/Login.dart';
 import 'package:project_syncup/pages/Onboarding.dart';
+import 'package:project_syncup/pages/qr_generator/Qr_generator.dart';
+import 'package:project_syncup/pages/qr_scanner/Qr_scanner.dart';
+import 'package:project_syncup/pages/qr_scanner/test.dart';
 import 'package:project_syncup/pages/Sign.dart';
 import 'package:project_syncup/pages/intro_pages/page1.dart';
 import 'package:project_syncup/pages/intro_pages/page2.dart';
@@ -28,7 +31,7 @@ Future<void> main(List<String> args) async {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => MyApp(),
+      builder: (context) => CreateEvent(),
     ),
   );
 }
