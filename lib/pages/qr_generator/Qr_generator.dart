@@ -18,7 +18,7 @@ class _QrGeneratorState extends State<QrGenerator> {
     return () {};
   }
 
-  void navigateBack(){
+  void navigateBack() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => Home()),
@@ -31,11 +31,12 @@ class _QrGeneratorState extends State<QrGenerator> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Template(
-      screenWidth: screenWidth, 
-      screenHeight: screenHeight, 
+      screenWidth: screenWidth,
+      screenHeight: screenHeight,
       theChild: Padding(
         padding: const EdgeInsets.all(30),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               "QR Generator",
@@ -44,7 +45,7 @@ class _QrGeneratorState extends State<QrGenerator> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.02),
             const Text(
               "Enter the text you want to convert to QR code",
               style: TextStyle(
@@ -52,7 +53,7 @@ class _QrGeneratorState extends State<QrGenerator> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.02),
             TextField(
               controller: urlController,
               decoration: const InputDecoration(
@@ -60,20 +61,52 @@ class _QrGeneratorState extends State<QrGenerator> {
                 labelText: 'Enter text',
               ),
             ),
-            const SizedBox(height: 20),
-            QrImageView(
-              data: 'http://localhost:3468/',
-              version: QrVersions.auto,
-              size: 200.0,
-              backgroundColor: Colors.white,
+            SizedBox(
+              height: screenHeight * 0.02,
             ),
-            const SizedBox(height: 40),
             CustomButton(
-              text: 'Done', 
-              onPressed: navigateBack, 
-              width: screenWidth * 0.2 , 
-              height: screenHeight*0.1
-              )
+              text: "Generate QR",
+              onPressed: () {
+                setState(() {});
+              },
+              height: screenHeight * 0.1,
+              width: screenWidth * 0.4,
+            ),
+            SizedBox(height: screenHeight * 0.02),
+            Center(
+              child: QrImageView(
+                data: urlController.text,
+                version: QrVersions.auto,
+                size: 200.0,
+                backgroundColor: Colors.white,
+              ),
+            ),
+            SizedBox(height: screenHeight * 0.04),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomButton(
+                  text: "Share",
+                  onPressed: shareLink,
+                  height: screenHeight * 0.1,
+                  width: screenWidth * 0.3,
+                ),
+                CustomButton(
+                  text: "Save",
+                  onPressed: navigateBack,
+                  height: screenHeight * 0.1,
+                  width: screenWidth * 0.3,
+                ),
+              ],
+            ),
+            SizedBox(height: screenHeight * 0.04),
+            const Text(
+                  "Developed by SyncUp",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  )
+            ),
           ],
         ),
       ),
