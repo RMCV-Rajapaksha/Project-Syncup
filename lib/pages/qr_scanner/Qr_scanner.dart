@@ -82,10 +82,8 @@ class _QrScannerState extends State<QrScanner> {
                             isScanCompleted = true;
                           });
 
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => const TempPage(),
-                            ),
+                          Navigator.pushNamed(
+                            context, '/album',
                           ).then((_) {
                             // Reset isScanCompleted when coming back to the scanner page
                             setState(() {

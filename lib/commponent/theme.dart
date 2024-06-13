@@ -2,9 +2,11 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project_syncup/pages/Album.dart';
 import 'package:project_syncup/pages/Home.dart';
 import 'package:project_syncup/pages/Login.dart';
 import 'package:project_syncup/pages/qr_generator/Qr_generator.dart';
+import 'package:project_syncup/pages/qr_scanner/Qr_scanner.dart';
 
 class Template extends StatelessWidget {
   Template({
@@ -88,8 +90,10 @@ class Template extends StatelessWidget {
       ),
       routes: {
         '/home': (context) => Home(),
-        '/qr_generator': (context) => const QrGenerator(),
+        '/qrgenerator': (context) => const QrGenerator(),
+        '/qrscanner': (context) => const QrScanner(),
         '/login' :(context) => const Login(),
+        '/album' :(context) => const Album(),
       },
     );
   }

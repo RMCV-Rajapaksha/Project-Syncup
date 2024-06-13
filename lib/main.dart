@@ -31,7 +31,7 @@ Future<void> main(List<String> args) async {
   );
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) => MyApp(),
     ),
   );
@@ -42,6 +42,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QrGenerator();
+    return Home();
   }
 }

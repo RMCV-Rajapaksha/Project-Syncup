@@ -27,7 +27,7 @@ class SpeedDialButtons extends StatelessWidget {
         SpeedDialChild(
           child: const Icon(Icons.qr_code),
           onTap: () {
-            Navigator.pushNamed(context, '/chat');
+            Navigator.pushNamed(context, '/qrscanner');
           },
           label: 'Scan QR',
           labelStyle: const TextStyle(fontSize: 18.0, color: Colors.white),
