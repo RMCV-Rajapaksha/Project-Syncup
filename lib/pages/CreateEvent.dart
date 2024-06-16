@@ -4,6 +4,8 @@ import 'package:project_syncup/commponent/Input.dart';
 import 'package:project_syncup/commponent/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:project_syncup/logics/Functions.dart';
+import 'package:project_syncup/logics/databse/EventDatabaseConnection.dart';
 import 'package:project_syncup/logics/databse/UserDatabaseConnection.dart';
 
 final _formKey = GlobalKey<FormState>();
@@ -14,6 +16,11 @@ class CreateEvent extends StatefulWidget {
   @override
   State<CreateEvent> createState() => _CreateEventState();
 }
+
+// Database connections
+Functions functions = Functions();
+DatabaseConnection databaseConnection = DatabaseConnection();
+Users user = Users();
 
 class _CreateEventState extends State<CreateEvent> {
   final TextEditingController _eventNameController = TextEditingController();
@@ -145,7 +152,13 @@ class _CreateEventState extends State<CreateEvent> {
                   CustomButton(
                     text: 'Create',
                     onPressed: () async {
-                      user.addEventToUser("fguyghdasf", "dsf");
+                      String type = _selectedEventType ?? " ";
+                      String name = _eventNameController.text;
+                      String id = functions.createEventId(type, name);
+
+                      user.addEventToUser("fguyghdasf", id);
+                      databaseConnection.addEvent(id, "user email", type, name,
+                          _descriptionController.text, "add url");
                     },
                     width: screenWidth * 0.95,
                     height: screenHeight * 0.06,
