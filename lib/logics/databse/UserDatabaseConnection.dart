@@ -50,7 +50,7 @@ class Users {
         email: email,
         firstName: firstName,
         lastName: lastName,
-        profileURL: url,
+        profileURL: url ?? "",
         events: [],
       );
 

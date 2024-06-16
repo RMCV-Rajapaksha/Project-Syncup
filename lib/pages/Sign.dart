@@ -4,6 +4,7 @@ import 'package:project_syncup/authentication/auth.dart';
 import 'package:project_syncup/commponent/Button.dart';
 import 'package:project_syncup/commponent/Input.dart';
 import 'package:project_syncup/commponent/theme.dart';
+import 'package:project_syncup/logics/databse/UserDatabaseConnection.dart';
 
 final _formKey = GlobalKey<FormState>();
 
@@ -21,6 +22,7 @@ class _LoginState extends State<SignUp> {
   final TextEditingController _passwordController = TextEditingController();
 
   Authentication _authentication = Authentication();
+  Users _user = Users();
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -85,6 +87,8 @@ class _LoginState extends State<SignUp> {
                         _emailController.text,
                         _passwordController.text,
                       );
+                      _user.addUserData(_firstNameController.text,
+                          _lastNameController.text, _emailController.text, "");
                     },
                     width: screenWidth * 0.95,
                     height: screenHeight * 0.06,
