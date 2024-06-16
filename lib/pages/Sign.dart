@@ -41,7 +41,7 @@ class _LoginState extends State<SignUp> {
               child: Column(
                 children: [
                   Text(
-                    'Welcome back',
+                    'Welcome',
                     style: TextStyle(
                       color: const Color.fromRGBO(57, 65, 78, 1),
                       fontSize: screenHeight * 0.04,
@@ -49,13 +49,18 @@ class _LoginState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.05),
-                  Text(
-                    'Sign up for SyncUp',
-                    style: TextStyle(
-                      color: Color.fromRGBO(53, 131, 169, 1),
-                      fontSize: screenHeight * 0.02,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Sign up for SyncUp',
+                        style: TextStyle(
+                          color: Color.fromRGBO(53, 131, 169, 1),
+                          fontSize: screenHeight * 0.02,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   CustomInputField(
