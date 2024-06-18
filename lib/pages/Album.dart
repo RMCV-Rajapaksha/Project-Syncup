@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_syncup/commponent/AlbumCard.dart';
 import 'package:project_syncup/commponent/theme.dart';
+import 'package:project_syncup/pages/qr_generator/Qr_generator.dart';
 
 final _formKey = GlobalKey<FormState>();
 
@@ -12,6 +13,30 @@ class Album extends StatefulWidget {
 }
 
 class _AlbumState extends State<Album> {
+    
+  void _showModalBottomScreen(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(15),
+        ),
+      
+      ),
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.55,
+        minChildSize: 0.50,
+        maxChildSize: 0.56,
+        expand: false,
+        builder: (context, scrollController) => SingleChildScrollView(
+          controller: scrollController,
+          child: const QrGenerator(),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -27,7 +52,7 @@ class _AlbumState extends State<Album> {
               child: Container(
                 height: screenHeight * 0.4,
                 width: screenWidth,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/cake.jpg'),
                     fit: BoxFit.cover,
@@ -50,11 +75,18 @@ class _AlbumState extends State<Album> {
                             ),
                           ),
                           SizedBox(width: screenWidth * 0.01),
-                          Icon(
-                            Icons.message, // Use the icon you prefer
-                            color:
-                                Colors.white, // Customize the color if needed
+                          const Icon(
+                            Icons.message,
+                            color: Colors.white,
                           ),
+                          SizedBox(width: screenWidth * 0.01),
+                          IconButton(
+                            onPressed: () => _showModalBottomScreen(context),
+                            icon: const Icon(
+                              Icons.qr_code,
+                              color: Colors.white,
+                            ),
+                          )
                         ],
                       ),
                       const Divider(
@@ -76,14 +108,13 @@ class _AlbumState extends State<Album> {
           ),
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of columns
-                crossAxisSpacing: 10.0, // Spacing between columns
-                mainAxisSpacing: 10.0, // Spacing between rows
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0,
               ),
-              itemCount: 10, // Number of items in your grid
+              itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
-                // You can return any widget you want for each grid item
                 return AlbumCard(index: index);
               },
             ),
