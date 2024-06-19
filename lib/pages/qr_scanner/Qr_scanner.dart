@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:project_syncup/commponent/theme.dart';
-import 'package:project_syncup/pages/qr_scanner/Result_page.dart';
-import 'package:project_syncup/pages/qr_scanner/Temp.dart';
 import 'package:qr_scanner_overlay/qr_scanner_overlay.dart';
+import 'package:project_syncup/logics/databse/EventDatabaseConnection.dart';
 
 class QrScanner extends StatefulWidget {
   const QrScanner({super.key});
@@ -72,7 +72,7 @@ class _QrScannerState extends State<QrScanner> {
                       detectionSpeed: DetectionSpeed.noDuplicates,
                       returnImage: true,
                     ),
-                    onDetect: (capture) {
+                    onDetect: (capture) async {
                       final List<Barcode> barcodes = capture.barcodes;
                       if (barcodes.isNotEmpty) {
                         final String barcode = barcodes.first.rawValue ?? '';
@@ -81,6 +81,12 @@ class _QrScannerState extends State<QrScanner> {
                           setState(() {
                             isScanCompleted = true;
                           });
+
+                          User? currentUser = FirebaseAuth.instance.currentUser;
+                          if (currentUser != null) {
+                            String email = currentUser.email!;
+                            await addEventToUser(email, barcode);
+                          }
 
                           Navigator.pushNamed(
                             context, '/album',

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:project_syncup/logics/databse/UserDatabaseConnection.dart';
 
 class DatabaseConnection {
   // Existing code for adding an event
@@ -32,3 +33,32 @@ class DatabaseConnection {
     }
   }
 }
+
+//add event to user
+
+  Future<void> addEventToUser(String email, String event) async {
+    var db = FirebaseFirestore.instance;
+    try {
+      final docRef = db.collection("users").doc(email);
+
+      await db.runTransaction((transaction) async {
+        final snapshot = await transaction.get(docRef);
+        if (!snapshot.exists) {
+          throw Exception("User does not exist!");
+        }
+
+        final user = Users.fromFirestore(snapshot, null);
+        final userEvents = List<String>.from(user.events ?? []);
+
+        if (!userEvents.contains(event)) {
+          userEvents.add(event);
+          transaction.update(docRef, {"events": userEvents});
+          print("Event added to user");
+        } else {
+          print("Event already exists for user");
+        }
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
