@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:project_syncup/commponent/Button.dart';
-import 'package:project_syncup/commponent/theme.dart';
+import 'package:share_plus/share_plus.dart';
 
 class QrGenerator extends StatefulWidget {
   const QrGenerator({super.key});
@@ -16,17 +16,22 @@ class QrGenerator extends StatefulWidget {
 
 class _QrGeneratorState extends State<QrGenerator> {
   TextEditingController urlController = TextEditingController(text: '');
-  String data = '';
-  final GlobalKey _qrkey = GlobalKey();
+  String data = 'Hello my first QR';
+  final GlobalKey _qrKey = GlobalKey();
   Directory externalDir = Directory('/storage/emulated/0/Download/Qr_code');
 
   void shareLink() {
-    // Implement sharing functionality here
+    if (data.isNotEmpty) {
+      Share.share(data);
+    } else {
+      const snackBar = SnackBar(content: Text('Please generate a QR code first'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 
   Future<void> _captureAndSavePng() async {
     try {
-      RenderRepaintBoundary boundary = _qrkey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+      RenderRepaintBoundary boundary = _qrKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
       var image = await boundary.toImage(pixelRatio: 3.0);
 
       // Drawing White Background because Qr Code is Black
@@ -85,53 +90,105 @@ class _QrGeneratorState extends State<QrGenerator> {
             color: Colors.white,
           ),
         ),
-        Container(
-          color: Colors.blue,
-          child: Padding(
-            padding: const EdgeInsets.all(30),
+        Opacity(
+          opacity: 0.85,
+          child: Container(
+            width: screenWidth,
+            height: screenHeight,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Color.fromRGBO(57, 189, 176, 0.8),
+                  Color.fromRGBO(35, 92, 163, 0.8),
+                ],
+              ),
+            ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: screenHeight * 0.02),
-                Center(
-                  child: RepaintBoundary(
-                    key: _qrkey,
-                    child: QrImageView(
-                      data: data,
-                      version: QrVersions.auto,
-                      size: 200.0,
-                      backgroundColor: Colors.white,
+                SizedBox(
+                  height: screenHeight * 0.125,
+                  width: screenWidth,
+                ),
+                Container(
+                  width: screenWidth,
+                  height: screenHeight * 0.6,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/Background.png'),
+                      fit: BoxFit.cover, // Ensure the image covers the entire container
                     ),
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.04),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CustomButton(
-                      text: "Share",
-                      onPressed: shareLink,
-                      height: screenHeight * 0.1,
-                      width: screenWidth * 0.3,
-                    ),
-                    CustomButton(
-                      text: "Save",
-                      onPressed: _captureAndSavePng,
-                      height: screenHeight * 0.1,
-                      width: screenWidth * 0.3,
-                    ),
-                  ],
-                ),
-                SizedBox(height: screenHeight * 0.04),
-                const Text(
-                  "Developed by SyncUp",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
+                SizedBox(
+                  height: screenHeight * 0.275,
+                  width: screenWidth,
                 ),
               ],
             ),
+          ),
+        ),
+        BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+          child: Container(),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.white.withOpacity(0.15),
+                Colors.white.withOpacity(0.05),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: screenHeight * 0.02),
+              Center(
+                child: RepaintBoundary(
+                  key: _qrKey,
+                  child: QrImageView(
+                    data: data,
+                    version: QrVersions.auto,
+                    size: 200.0,
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.04),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomButton(
+                    text: "Share",
+                    onPressed: shareLink,
+                    height: screenHeight * 0.1,
+                    width: screenWidth * 0.3,
+                  ),
+                  CustomButton(
+                    text: "Save",
+                    onPressed: _captureAndSavePng,
+                    height: screenHeight * 0.1,
+                    width: screenWidth * 0.3,
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.04),
+              const Text(
+                "Developed by SyncUp",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
       ],

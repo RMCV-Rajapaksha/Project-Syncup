@@ -13,7 +13,6 @@ class Album extends StatefulWidget {
 }
 
 class _AlbumState extends State<Album> {
-    
   void _showModalBottomScreen(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -22,7 +21,6 @@ class _AlbumState extends State<Album> {
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(15),
         ),
-      
       ),
       builder: (context) => DraggableScrollableSheet(
         initialChildSize: 0.55,
@@ -42,10 +40,11 @@ class _AlbumState extends State<Album> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Template(
-      screenWidth: screenWidth,
-      screenHeight: screenHeight,
-      theChild: Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Album'),
+      ),
+      body: Column(
         children: [
           Container(
             child: ClipRRect(
@@ -86,7 +85,7 @@ class _AlbumState extends State<Album> {
                               Icons.qr_code,
                               color: Colors.white,
                             ),
-                          )
+                          ),
                         ],
                       ),
                       const Divider(
